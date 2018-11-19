@@ -1,0 +1,14 @@
+#+TITLE: SFML Game Prototype C++
+#+AUTHOR: Oleksandr Kononov
+
+This is a CA assignment for the C++ Game Development Module. The assignment consists of creating a game prototype in C++ using the
+[[https://www.sfml-dev.org/][SFML Library]].
+
+** Aspects/Features
+
+The Game Prototype will contain the following:
+
+- [[https://en.wikipedia.org/wiki/Entity%E2%80%93component%E2%80%93system][Entity-Component System Pattern]]
+- [[https://en.wikipedia.org/wiki/Flyweight_pattern][Flyweight Design Pattern]]
+- [[https://en.wikipedia.org/wiki/Command_pattern][Command Pattern]]
+- [[https://www.redblobgames.com/x/1510-influence-maps/][Influence Maps]]

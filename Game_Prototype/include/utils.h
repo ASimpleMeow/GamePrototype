@@ -7,7 +7,7 @@
 #include <sstream>
 #include <fstream>
 #include <memory>
-#include "enums.h"
+#include "Enums.hpp"
 #include "TextureManager.h"
 #if TARGET_OS_MAC
 #include <cmath>

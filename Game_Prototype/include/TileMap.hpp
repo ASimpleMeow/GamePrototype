@@ -10,7 +10,7 @@
 #define TileMap_hpp
 #include <string>
 #include "Window.h"
-#include "enums.h"
+#include "Enums.hpp"
 #include <iostream>
 
 // The level tile type.

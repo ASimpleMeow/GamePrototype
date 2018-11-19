@@ -4,7 +4,7 @@
 
 #ifndef Level_hpp
 #define Level_hpp
-#include "enums.h"
+#include "Enums.hpp"
 #include "utils.h"
 #include "TileMap.hpp"
 

@@ -158,11 +158,17 @@
     <ClInclude Include="game-math\Vector2.h" />
     <ClInclude Include="game-math\Vector3.h" />
     <ClInclude Include="game-math\Vector4.h" />
+    <ClInclude Include="include\Components\Command.hpp" />
+    <ClInclude Include="include\components\GraphicsComponent.hpp" />
+    <ClInclude Include="include\components\HealthComponent.hpp" />
+    <ClInclude Include="include\components\InuptComponent.hpp" />
+    <ClInclude Include="include\components\PhysicsComponent.hpp" />
     <ClInclude Include="include\Enemy.hpp" />
     <ClInclude Include="include\Entity.h" />
-    <ClInclude Include="include\enums.h" />
+    <ClInclude Include="include\Enums.hpp" />
     <ClInclude Include="include\evilPlayer.hpp" />
     <ClInclude Include="include\Game.h" />
+    <ClInclude Include="include\GameObject.hpp" />
     <ClInclude Include="include\Input.h" />
     <ClInclude Include="include\Level.hpp" />
     <ClInclude Include="include\Object.h" />
@@ -173,10 +179,15 @@
     <ClInclude Include="include\Window.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Components\Command.cpp" />
+    <ClCompile Include="src\Components\GraphicsComponent.cpp" />
+    <ClCompile Include="src\Components\InputComponent.cpp" />
+    <ClCompile Include="src\Components\PhysicsComponent.cpp" />
     <ClCompile Include="src\Enemy.cpp" />
     <ClCompile Include="src\Entity.cpp" />
     <ClCompile Include="src\evilPlayer.cpp" />
     <ClCompile Include="src\Game.cpp" />
+    <ClCompile Include="src\GameObject.cpp" />
     <ClCompile Include="src\Input.cpp" />
     <ClCompile Include="src\Level.cpp" />
     <ClCompile Include="src\Main.cpp" />
