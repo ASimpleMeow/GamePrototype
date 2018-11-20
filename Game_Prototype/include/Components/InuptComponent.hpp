@@ -21,7 +21,7 @@ public:
 		KEY_ATTACK
 	};
 
-	InputComponent() {};
+	InputComponent();
 	~InputComponent() {};
 
 	void BindKey(KEY key, sf::Keyboard::Key keyToBind);
@@ -29,13 +29,7 @@ public:
 
 protected:
 	// Default key bindings
-	std::map<KEY, sf::Keyboard::Key> m_keyMappings = {
-		{ InputComponent::KEY::KEY_LEFT, sf::Keyboard::A },
-		{ InputComponent::KEY::KEY_RIGHT, sf::Keyboard::D },
-		{ InputComponent::KEY::KEY_UP, sf::Keyboard::W },
-		{ InputComponent::KEY::KEY_DOWN, sf::Keyboard::S },
-		{ InputComponent::KEY::KEY_ATTACK, sf::Keyboard::Space }
-	};
+	std::map<KEY, sf::Keyboard::Key> m_keyMappings;
 
 	std::shared_ptr<Command> m_keyLeftCommand;
 	std::shared_ptr<Command> m_keyRightCommand;

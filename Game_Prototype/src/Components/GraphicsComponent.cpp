@@ -1,4 +1,5 @@
 #include "Components/GraphicsComponent.hpp"
+#include "TextureManager.h"
 
 GraphicsComponent::GraphicsComponent() :
 m_animationSpeed(0),
@@ -8,6 +9,10 @@ m_currentFrame(0),
 m_frameWidth(0),
 m_frameHeight(0),
 m_timeDelta(0) {}
+
+void GraphicsComponent::Update(GameObject& obj, float timeDelta) {
+	m_timeDelta = timeDelta;
+}
 
 void GraphicsComponent::Draw(sf::RenderWindow &window, float timeDelta) {
 	if (m_isAnimated) {
@@ -52,9 +57,60 @@ int GraphicsComponent::GetFrameCount() const { return m_frameCount; }
 
 bool GraphicsComponent::IsAnimated() { return m_isAnimated; }
 
+int(&GraphicsComponent::GetTextureIDs())[static_cast<int>(ANIMATION_STATE::COUNT)] { return m_textureIDs; }
+
+int& GraphicsComponent::GetCurrenTextureIndex() { return m_currentTextureIndex; }
+
 void GraphicsComponent::SetAnimated(bool isAnimated) { 
 	m_isAnimated = isAnimated;
 
 	if (isAnimated) m_currentFrame = 0;
 	else m_sprite.setTextureRect(sf::IntRect(0, 0, m_frameWidth, m_frameHeight));
+}
+
+
+
+/* Player Graphics Component */
+
+PlayerGraphicsComponent::PlayerGraphicsComponent(std::string className): GraphicsComponent() {
+	// Load textures.
+	m_textureIDs[static_cast<int>(ANIMATION_STATE::WALK_UP)] = TextureManager::AddTexture("spr_" + className + "_walk_up.png");
+	m_textureIDs[static_cast<int>(ANIMATION_STATE::WALK_DOWN)] = TextureManager::AddTexture("spr_" + className + "_walk_down.png");
+	m_textureIDs[static_cast<int>(ANIMATION_STATE::WALK_RIGHT)] = TextureManager::AddTexture("spr_" + className + "_walk_right.png");
+	m_textureIDs[static_cast<int>(ANIMATION_STATE::WALK_LEFT)] = TextureManager::AddTexture("spr_" + className + "_walk_left.png");
+	m_textureIDs[static_cast<int>(ANIMATION_STATE::IDLE_UP)] = TextureManager::AddTexture("spr_" + className + "_idle_up.png");
+	m_textureIDs[static_cast<int>(ANIMATION_STATE::IDLE_DOWN)] = TextureManager::AddTexture("spr_" + className + "_idle_down.png");
+	m_textureIDs[static_cast<int>(ANIMATION_STATE::IDLE_RIGHT)] = TextureManager::AddTexture("spr_" + className + "_idle_right.png");
+	m_textureIDs[static_cast<int>(ANIMATION_STATE::IDLE_LEFT)] = TextureManager::AddTexture("spr_" + className + "_idle_left.png");
+
+	// Set initial sprite.
+	SetSprite(TextureManager::GetTexture(m_textureIDs[static_cast<int>(ANIMATION_STATE::WALK_UP)]), false, 8, 12);
+	m_currentTextureIndex = static_cast<int>(ANIMATION_STATE::WALK_UP);
+	m_sprite.setOrigin(sf::Vector2f(13.f, 18.f));
+}
+
+void PlayerGraphicsComponent::Update(GameObject& obj, float timeDelta) {
+	GraphicsComponent::Update(obj, timeDelta);
+
+	if (m_currentTextureIndex != static_cast<int>(m_animState)) {
+		m_currentTextureIndex = static_cast<int>(m_animState);
+		m_sprite.setTexture(TextureManager::GetTexture(m_textureIDs[m_currentTextureIndex]));
+	}
+
+	if (obj.GetPhysicsComponent() == nullptr) return;
+
+	sf::Vector2f movement = obj.GetPhysicsComponent()->GetVelocity();
+	if (movement.x == 0 && movement.y == 0) {
+		if (IsAnimated()) {
+			m_currentTextureIndex += 4;
+			m_sprite.setTexture(TextureManager::GetTexture(m_textureIDs[m_currentTextureIndex]));
+			SetAnimated(false);
+		}
+	} else {
+		if (!IsAnimated()) {
+			m_currentTextureIndex -= 4;
+			m_sprite.setTexture(TextureManager::GetTexture(m_textureIDs[m_currentTextureIndex]));
+			SetAnimated(true);
+		}
+	}
 }

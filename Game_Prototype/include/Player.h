@@ -11,12 +11,12 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
-#include "Entity.h"
-#include "Input.h"
+#include "GameObject.hpp"
+#include "Components/HealthComponent.hpp"
 
 //#include "Projectile.h"
 
-class Player : public Entity
+class Player : public GameObject
 {
 public:
 	/**
@@ -48,31 +48,12 @@ public:
 	 */
 	PLAYER_CLASS GetClass() const;
 
-	/**
-	 * Gets the player's aim sprite.
-	 * return The player's aim sprite.
-	 */
-	sf::Sprite& GetAimSprite();
-
-
-
 private:
 
 	/**
-	 * Checks if the given movement will result in a collision.
-	 * @param movement The movement to check.
-	 * @param level A reference to the level object.
-	 * @return True if the given movement will result in a collision.
-	 */
-    bool CausesCollision(sf::Vector2f movement);
-
-private:
-
-
-	/**
-	* The number of stat points the entities has to distribute.
+	* Components of the player
 	*/
-	int m_statPoints;
+	std::shared_ptr<HealthComponent> m_health;
     
     /**
      * The player's class.

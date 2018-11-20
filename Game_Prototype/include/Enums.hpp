@@ -10,7 +10,7 @@
 #define Enums_hpp
 
 // Constants
-constexpr float WALK_ACCELERATION{ 1 };
+constexpr float WALK_ACCELERATION{ 200 };
 
 // Music tracks.
 enum class MUSIC_TRACK {

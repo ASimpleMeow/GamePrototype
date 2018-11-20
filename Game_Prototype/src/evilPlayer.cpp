@@ -17,7 +17,7 @@ void evilPlayer::Update(float timeDelta)
     // Calculate where the current movement will put us.
     ANIMATION_STATE animState = static_cast<ANIMATION_STATE>(m_currentTextureIndex);
     
-    if (Input::IsKeyPressed(Input::KEY::KEY_E_LEFT))
+    /*if (Input::IsKeyPressed(Input::KEY::KEY_E_LEFT))
     {
         // Set movement speed.
         movementSpeed.x = -m_speed * timeDelta;
@@ -49,7 +49,7 @@ void evilPlayer::Update(float timeDelta)
         
         // Chose animation state.
         animState = ANIMATION_STATE::WALK_DOWN;
-    }
+    }*/
     
     // Calculate horizontal movement.
     

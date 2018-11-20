@@ -2,14 +2,10 @@
 #include "Game.h"
 #include "game-imap/IMap.h"
 
-Game::Game() : m_window("Tiling", sf::Vector2u(1280, 800))
-
-{
-    
-    
+Game::Game() : m_window("Tiling", sf::Vector2u(800, 600)) {
     //set up influencemap parameters
-    m_player.setInfluence(10);
-    m_ePlayer.setInfluence(-2);
+	m_player.SetInfluence(10);
+    m_ePlayer.setInfluence(-10);
     
     
     //Influence Map related
@@ -61,7 +57,7 @@ void Game::Update(){
     sf::Event event;
     float newTime = m_clock.getElapsedTime().asSeconds();
     float frameTime = std::max(0.f, newTime - currentTime);
-    
+	int intSpreadOutAmount = 5;
     
     m_player.Update(0.01);//use timeDelta, which needs to be calculated per frame
     m_ePlayer.Update(0.01);
@@ -72,15 +68,12 @@ void Game::Update(){
         
         if(oldPlayerPosition!=playerPosition){
             m_imap->clear();//everytime player moves to new tile, reset influencemap calculation
-            m_imap->setCellValue(playerPosition.x,playerPosition.y, 30);//m_player.getInfluence());
-            
+            m_imap->setCellValue(playerPosition.x,playerPosition.y, m_player.GetInfluence());
             m_imap->propValue(0.1, GameIMap::PropCurve::Linear);
             //both player and enemys need to be updated as imap has been cleared at start
-            for (auto i = 0; i < 2; i++)
-            {
-                int  intSpreadOutAmount=5;
+            for (auto i = 0; i < 2; i++) {
                 m_imap->propagateInfluence(playerPosition.x,playerPosition.y, intSpreadOutAmount, GameIMap::PropCurve::Linear);
-                m_imap->propagateInfluence(ePlayerPosition.x,ePlayerPosition.y, intSpreadOutAmount, GameIMap::PropCurve::Linear);
+                m_imap->propagateInfluence(ePlayerPosition.x,ePlayerPosition.y, intSpreadOutAmount, GameIMap::PropCurve::Linear, -1.0f);
             }
             
         }
@@ -89,15 +82,11 @@ void Game::Update(){
         if(old_E_PlayerPosition!=ePlayerPosition){
             m_imap->clear();//if not done here,
             m_imap->setCellValue(ePlayerPosition.x,ePlayerPosition.y,m_ePlayer.getInfluence());
-            m_imap->propValue(0.1, GameIMap::PropCurve::Linear);
-            
+			m_imap->propValue(0.1, GameIMap::PropCurve::Linear);
             //both player and enemys need to be updated as imap has been cleared at start
-            for (auto i = 0; i < 2; i++)
-            {
-                
-                int intSpreadOutAmount=5;
+            for (auto i = 0; i < 2; i++){
                 m_imap->propagateInfluence(playerPosition.x,playerPosition.y, intSpreadOutAmount, GameIMap::PropCurve::Linear);
-                m_imap->propagateInfluence(ePlayerPosition.x,ePlayerPosition.y, intSpreadOutAmount, GameIMap::PropCurve::Linear);
+                m_imap->propagateInfluence(ePlayerPosition.x,ePlayerPosition.y, intSpreadOutAmount, GameIMap::PropCurve::Linear, -1.0f);
             }
             
         }
@@ -153,31 +142,29 @@ void Game::Render(){
     // Render here.
     m_window.GetRenderWindow()->draw(this->m_map);
     // Draw the player.
-    m_player.Draw(*m_window.GetRenderWindow(), m_player.m_timeDelta);
+    m_player.Draw(*m_window.GetRenderWindow(), 0.01);
     
     std::stringstream stream;
-    stream << fixed <<setprecision(1) <<m_player.getInfluence();
+    stream << fixed <<setprecision(1) << m_player.GetInfluence();
     string s = stream.str();
     std::vector<sf::Text> sfTextArr;
     sf::Vector2f location;
     for (auto j=0;j<m_imap->m_iHeight;j++ )
         for (auto i =0; i< m_imap->m_iWidth;i++){
             location=m_map.GetActualTileLocation(j,i);
-            
+			auto isPlayer = m_imap->getCellValue(j, i) > 0;
 			auto val = sigmoid(m_imap->getCellValue(j, i));
-			color.r = 255;
+			color.r = isPlayer? 255 : 255 * ((1 - val) < 0.1 ? 0 : (1 - val) * 2);
 			color.g = 255 * ((1 - val) < 0.1 ? 0 : (1-val)*2);
-			color.b = color.g;
+			color.b = isPlayer ? color.g : 255;
             m_map.rectangeOnTile(sf::Vector2i(i,j),color );
 
 			if (m_window.IsDebug())
 				sfTextArr.push_back(utilityFn(m_imap->getCellValue(j, i),sf::Vector2i(j,i)) );
         }
     
-    
-    
     m_map.printOnTileArr(sfTextArr);
     m_ePlayer.setEvilState();
-    m_ePlayer.Draw(*m_window.GetRenderWindow(), m_player.m_timeDelta);
+    m_ePlayer.Draw(*m_window.GetRenderWindow(), 0.01);
     m_window.EndDraw();
 }

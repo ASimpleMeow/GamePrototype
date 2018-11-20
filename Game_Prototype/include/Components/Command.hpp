@@ -24,22 +24,22 @@ class AttackCommand : public Command {
 
 class WalkLeftCommand : public Command {
 public:
-	void Execute(GameObject& obj) { Walk(obj, { -WALK_ACCELERATION, 0 }); }
+	void Execute(GameObject& obj);
 };
 
 class WalkRightCommand : public Command {
 public:
-	void Execute(GameObject& obj) { Walk(obj, { WALK_ACCELERATION, 0 }); }
+	void Execute(GameObject& obj);
 };
 
 class WalkUpCommand : public Command {
 public:
-	void Execute(GameObject& obj) { Walk(obj, { 0, -WALK_ACCELERATION }); }
+	void Execute(GameObject& obj);
 };
 
 class WalkDownCommand : public Command {
 public:
-	void Execute(GameObject& obj) { Walk(obj, { 0, WALK_ACCELERATION }); }
+	void Execute(GameObject& obj);
 };
 
 #endif // !Command_hpp
