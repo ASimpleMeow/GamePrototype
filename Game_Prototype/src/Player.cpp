@@ -2,9 +2,10 @@
 #include "Player.h"
 #include <iostream>
 
-// Constructor.
-Player::Player() : GameObject(std::make_shared<PlayerGraphicsComponent>("mage"), std::make_shared<PhysicsComponent>(), std::make_shared<InputComponent>())
-{
+Player::Player() {
+	m_graphics = std::make_shared<PlayerGraphicsComponent>("mage");
+	m_physics = std::make_shared<PhysicsComponent>();
+	m_input = std::make_shared<InputComponent>();
 	m_health = std::make_shared<HealthComponent>();
 }
 

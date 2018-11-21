@@ -1,13 +1,8 @@
 #include "GameObject.hpp"
 
-GameObject::GameObject() :m_position({ 0,0 }), m_influenceValue(1.0f) { }
-
-GameObject::GameObject(std::shared_ptr<GraphicsComponent> graphics, std::shared_ptr<PhysicsComponent>physics, std::shared_ptr<InputComponent> input) {
+GameObject::GameObject() {
 	m_position = { 0,0 };
 	m_influenceValue = 1.0f;
-	m_graphics = graphics;
-	m_physics = physics;
-	m_input = input;
 }
 
 void GameObject::Update(float timeDelta) {

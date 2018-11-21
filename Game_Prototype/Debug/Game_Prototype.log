@@ -1,14 +1,14 @@
 ﻿  Game.cpp
 c:\users\oleksandr\desktop\wit\year 4\game development\workspace\game_prototype\game_prototype\include\tilemap.hpp(100): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
 c:\users\oleksandr\desktop\wit\year 4\game development\workspace\game_prototype\game_prototype\include\tilemap.hpp(154): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
-c:\users\oleksandr\desktop\wit\year 4\game development\workspace\game_prototype\game_prototype\include\tilemap.hpp(174): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
 c:\users\oleksandr\desktop\wit\year 4\game development\workspace\game_prototype\game_prototype\include\tilemap.hpp(175): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
 c:\users\oleksandr\desktop\wit\year 4\game development\workspace\game_prototype\game_prototype\include\tilemap.hpp(176): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
 c:\users\oleksandr\desktop\wit\year 4\game development\workspace\game_prototype\game_prototype\include\tilemap.hpp(177): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
-c:\users\oleksandr\desktop\wit\year 4\game development\workspace\game_prototype\game_prototype\include\tilemap.hpp(180): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+c:\users\oleksandr\desktop\wit\year 4\game development\workspace\game_prototype\game_prototype\include\tilemap.hpp(178): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
 c:\users\oleksandr\desktop\wit\year 4\game development\workspace\game_prototype\game_prototype\include\tilemap.hpp(181): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
 c:\users\oleksandr\desktop\wit\year 4\game development\workspace\game_prototype\game_prototype\include\tilemap.hpp(182): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
 c:\users\oleksandr\desktop\wit\year 4\game development\workspace\game_prototype\game_prototype\include\tilemap.hpp(183): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+c:\users\oleksandr\desktop\wit\year 4\game development\workspace\game_prototype\game_prototype\include\tilemap.hpp(184): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
 c:\users\oleksandr\desktop\wit\year 4\game development\workspace\game_prototype\game_prototype\game-imap\imap.h(40): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
 c:\users\oleksandr\desktop\wit\year 4\game development\workspace\game_prototype\game_prototype\game-imap\imap.h(83): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 c:\users\oleksandr\desktop\wit\year 4\game development\workspace\game_prototype\game_prototype\game-imap\imap.h(333): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
@@ -19,10 +19,16 @@ c:\users\oleksandr\desktop\wit\year 4\game development\workspace\game_prototype\
 c:\users\oleksandr\desktop\wit\year 4\game development\workspace\game_prototype\game_prototype\src\game.cpp(72): warning C4305: 'argument': truncation from 'double' to 'float'
 c:\users\oleksandr\desktop\wit\year 4\game development\workspace\game_prototype\game_prototype\src\game.cpp(85): warning C4305: 'argument': truncation from 'double' to 'float'
 c:\users\oleksandr\desktop\wit\year 4\game development\workspace\game_prototype\game_prototype\src\game.cpp(57): warning C4101: 'event': unreferenced local variable
-c:\users\oleksandr\desktop\wit\year 4\game development\workspace\game_prototype\game_prototype\src\game.cpp(145): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\oleksandr\desktop\wit\year 4\game development\workspace\game_prototype\game_prototype\src\game.cpp(156): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-c:\users\oleksandr\desktop\wit\year 4\game development\workspace\game_prototype\game_prototype\src\game.cpp(157): warning C4244: '=': conversion from 'double' to 'sf::Uint8', possible loss of data
-c:\users\oleksandr\desktop\wit\year 4\game development\workspace\game_prototype\game_prototype\src\game.cpp(158): warning C4244: '=': conversion from 'double' to 'sf::Uint8', possible loss of data
-c:\users\oleksandr\desktop\wit\year 4\game development\workspace\game_prototype\game_prototype\src\game.cpp(168): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\oleksandr\desktop\wit\year 4\game development\workspace\game_prototype\game_prototype\src\game.cpp(153): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\oleksandr\desktop\wit\year 4\game development\workspace\game_prototype\game_prototype\src\game.cpp(163): warning C4244: '=': conversion from 'float' to 'sf::Uint8', possible loss of data
+c:\users\oleksandr\desktop\wit\year 4\game development\workspace\game_prototype\game_prototype\src\game.cpp(164): warning C4244: '=': conversion from 'float' to 'sf::Uint8', possible loss of data
+c:\users\oleksandr\desktop\wit\year 4\game development\workspace\game_prototype\game_prototype\src\game.cpp(173): warning C4305: 'argument': truncation from 'double' to 'float'
+  Generating Code...
+  Skipping... (no relevant changes detected)
+  evilPlayer.cpp
+  TileMap.cpp
+  Main.cpp
+  Level.cpp
+  Enemy.cpp
   Game_Prototype.vcxproj -> C:\Users\Oleksandr\Desktop\WIT\Year 4\Game Development\workspace\Game_Prototype\Debug\Game_Prototype.exe
   Game_Prototype.vcxproj -> C:\Users\Oleksandr\Desktop\WIT\Year 4\Game Development\workspace\Game_Prototype\Debug\Game_Prototype.pdb (Full PDB)

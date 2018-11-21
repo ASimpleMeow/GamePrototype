@@ -18,7 +18,6 @@ class GameObject {
 
 public:
 	GameObject();
-	GameObject(std::shared_ptr<GraphicsComponent> graphics = nullptr, std::shared_ptr<PhysicsComponent>physics = nullptr, std::shared_ptr<InputComponent> input = nullptr);
 	virtual ~GameObject() {};
 
 	virtual void Update(float timeDelta);

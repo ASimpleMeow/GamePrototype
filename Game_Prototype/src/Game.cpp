@@ -135,32 +135,37 @@ sf::Text Game::utilityFn(float val, sf::Vector2i pos)
     return sfTxt;
 }
 void Game::Render(){
-	sf::Color color = sf::Color::White;
-	auto sigmoid = [=](int v) { return exp(v) / (exp(v) + 1); };
+	auto clamp = [=](float x, float l, float h) {
+		if (x < l) return l;
+		if (x > h) return h;
+		return x;
+	};
+
+	auto smoothstep = [=](float edge0, float edge1, float x) {
+		x = clamp((x - edge0) / (edge1 - edge0), 0, 1);
+		return x * x * (3 - 2 * x);
+	};
 
     m_window.BeginDraw();
     // Render here.
     m_window.GetRenderWindow()->draw(this->m_map);
     // Draw the player.
     m_player.Draw(*m_window.GetRenderWindow(), 0.01);
-    
-    std::stringstream stream;
-    stream << fixed <<setprecision(1) << m_player.GetInfluence();
-    string s = stream.str();
+
     std::vector<sf::Text> sfTextArr;
-    sf::Vector2f location;
     for (auto j=0;j<m_imap->m_iHeight;j++ )
         for (auto i =0; i< m_imap->m_iWidth;i++){
-            location=m_map.GetActualTileLocation(j,i);
-			auto isPlayer = m_imap->getCellValue(j, i) > 0;
-			auto val = sigmoid(m_imap->getCellValue(j, i));
-			color.r = isPlayer? 255 : 255 * ((1 - val) < 0.1 ? 0 : (1 - val) * 2);
-			color.g = 255 * ((1 - val) < 0.1 ? 0 : (1-val)*2);
-			color.b = isPlayer ? color.g : 255;
+			sf::Color color = sf::Color::Black;
+			auto cellValue = m_imap->getCellValue(j, i);
+			auto isPlayer = cellValue > 0;
+			if (cellValue != 0) {
+				cellValue = 255 - (smoothstep(-3, 6, abs(cellValue)) * 255);
+				if (isPlayer) color.r = clamp(cellValue, 50, 255);
+				else color.b = clamp(cellValue, 50, 255);
+			} else color = sf::Color::White;
             m_map.rectangeOnTile(sf::Vector2i(i,j),color );
 
-			if (m_window.IsDebug())
-				sfTextArr.push_back(utilityFn(m_imap->getCellValue(j, i),sf::Vector2i(j,i)) );
+			if (m_window.IsDebug()) sfTextArr.push_back(utilityFn(m_imap->getCellValue(j, i),sf::Vector2i(j,i)) );
         }
     
     m_map.printOnTileArr(sfTextArr);
