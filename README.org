@@ -14,6 +14,6 @@ The Game Prototype will contain the following:
 - [[https://www.redblobgames.com/x/1510-influence-maps/][Influence Maps]]
 
 ** Current Status
-Currently the Entity-Component System Pattern is built and in use on the Player character, with plans for the enemy character to be next.\\
+Currently the Entity-Component System Pattern is built and in use on both the EvilPlayer and Player.\\
 The Flyweight Design Pattern is already implemented with the Asset Manager, but also seen in the Command Pattern.\\
 The influence map is used via a library, and so far is working on both enemy and player to show Red(positive influence) and Blue(negative influence) respectively.\\

@@ -1,4 +1,7 @@
-#include "utils.h"
+#include <map>
+#include <memory>
+#include <SFML/Graphics.hpp>
+#include "TextureManager.hpp"
 
 std::map<std::string, std::pair<int, std::unique_ptr<sf::Texture>>> TextureManager::m_textures;
 int TextureManager::m_currentId = 0;

@@ -54,37 +54,16 @@
     <ClInclude Include="game-math\Vector4.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Enemy.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Entity.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\evilPlayer.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="include\Game.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Input.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\Level.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Object.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="include\Player.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\TextureManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="include\TileMap.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\utils.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\Window.h">
@@ -111,30 +90,21 @@
     <ClInclude Include="include\Enums.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\EvilPlayer.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\TextureManager.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Enemy.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Entity.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\evilPlayer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\Game.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Input.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Level.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Object.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Player.cpp">
@@ -162,6 +132,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Components\Command.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\EvilPlayer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

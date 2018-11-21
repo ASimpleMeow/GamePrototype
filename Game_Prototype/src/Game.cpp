@@ -5,7 +5,7 @@
 Game::Game() : m_window("Tiling", sf::Vector2u(800, 600)) {
     //set up influencemap parameters
 	m_player.SetInfluence(10);
-    m_ePlayer.setInfluence(-10);
+    m_ePlayer.SetInfluence(-10);
     
     
     //Influence Map related
@@ -81,7 +81,7 @@ void Game::Update(){
         //if enemy position changes, update influence map
         if(old_E_PlayerPosition!=ePlayerPosition){
             m_imap->clear();//if not done here,
-            m_imap->setCellValue(ePlayerPosition.x,ePlayerPosition.y,m_ePlayer.getInfluence());
+            m_imap->setCellValue(ePlayerPosition.x,ePlayerPosition.y,m_ePlayer.GetInfluence());
 			m_imap->propValue(0.1, GameIMap::PropCurve::Linear);
             //both player and enemys need to be updated as imap has been cleared at start
             for (auto i = 0; i < 2; i++){
@@ -169,7 +169,7 @@ void Game::Render(){
         }
     
     m_map.printOnTileArr(sfTextArr);
-    m_ePlayer.setEvilState();
+    m_ePlayer.SetEvilState();
     m_ePlayer.Draw(*m_window.GetRenderWindow(), 0.01);
     m_window.EndDraw();
 }

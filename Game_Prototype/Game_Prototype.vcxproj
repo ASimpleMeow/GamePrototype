@@ -163,19 +163,14 @@
     <ClInclude Include="include\components\HealthComponent.hpp" />
     <ClInclude Include="include\components\InuptComponent.hpp" />
     <ClInclude Include="include\components\PhysicsComponent.hpp" />
-    <ClInclude Include="include\Enemy.hpp" />
-    <ClInclude Include="include\Entity.h" />
     <ClInclude Include="include\Enums.hpp" />
-    <ClInclude Include="include\evilPlayer.hpp" />
+    <ClInclude Include="include\EvilPlayer.hpp" />
     <ClInclude Include="include\Game.h" />
     <ClInclude Include="include\GameObject.hpp" />
-    <ClInclude Include="include\Input.h" />
     <ClInclude Include="include\Level.hpp" />
-    <ClInclude Include="include\Object.h" />
     <ClInclude Include="include\Player.h" />
-    <ClInclude Include="include\TextureManager.h" />
+    <ClInclude Include="include\TextureManager.hpp" />
     <ClInclude Include="include\TileMap.hpp" />
-    <ClInclude Include="include\utils.h" />
     <ClInclude Include="include\Window.h" />
   </ItemGroup>
   <ItemGroup>
@@ -183,15 +178,11 @@
     <ClCompile Include="src\Components\GraphicsComponent.cpp" />
     <ClCompile Include="src\Components\InputComponent.cpp" />
     <ClCompile Include="src\Components\PhysicsComponent.cpp" />
-    <ClCompile Include="src\Enemy.cpp" />
-    <ClCompile Include="src\Entity.cpp" />
-    <ClCompile Include="src\evilPlayer.cpp" />
+    <ClCompile Include="src\EvilPlayer.cpp" />
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\GameObject.cpp" />
-    <ClCompile Include="src\Input.cpp" />
     <ClCompile Include="src\Level.cpp" />
     <ClCompile Include="src\Main.cpp" />
-    <ClCompile Include="src\Object.cpp" />
     <ClCompile Include="src\Player.cpp" />
     <ClCompile Include="src\TextureManager.cpp" />
     <ClCompile Include="src\TileMap.cpp" />

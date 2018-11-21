@@ -1,5 +1,5 @@
 #include "Components/GraphicsComponent.hpp"
-#include "TextureManager.h"
+#include "TextureManager.hpp"
 
 GraphicsComponent::GraphicsComponent() :
 m_animationSpeed(0),

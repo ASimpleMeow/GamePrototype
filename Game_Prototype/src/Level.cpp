@@ -1,9 +1,5 @@
-
-//
-
 #include "Level.hpp"
-
-
+#include "TextureManager.hpp"
 
 // Default constructor.
 Level::Level()

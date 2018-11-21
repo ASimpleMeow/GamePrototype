@@ -1,11 +1,6 @@
-//
-//  Level.hpp
-
-
 #ifndef Level_hpp
 #define Level_hpp
 #include "Enums.hpp"
-#include "utils.h"
 #include "TileMap.hpp"
 
 

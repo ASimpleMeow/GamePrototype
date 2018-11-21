@@ -2,10 +2,8 @@
 #include "Window.h"
 #include "TileMap.hpp"
 #include "Player.h"
-#include "evilPlayer.hpp"
+#include "EvilPlayer.hpp"
 #include "game-imap/IMap.h"
-
-
 
 static float const FPS = 60.0;
 static float const MS_PER_STEP = 1.0f / FPS;        // Roughly (0.017) @ 60fps.
@@ -41,7 +39,7 @@ private:
      * The main player object. Only one instance of this object should be created at any one time.
      */
     Player m_player;
-    evilPlayer m_ePlayer;
+    EvilPlayer m_ePlayer;
     
     bool m_isRunning; //want to be able to quit gameloop
     
