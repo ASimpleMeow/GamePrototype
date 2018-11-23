@@ -44,7 +44,7 @@ private:
     bool m_isRunning; //want to be able to quit gameloop
     
     sf::Clock m_clock;
-    float m_elapsed;
+    sf::Time m_previousTime;
     TileMap m_map;
     sf::Sprite mapSprite_;
     std::vector<int> level=
