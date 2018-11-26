@@ -40,6 +40,7 @@ void Game::Update(){
     static int updateCounterIMap = 0;
 	static sf::Vector2i oldPlayerPosition(0, 0);
 	static sf::Vector2i old_E_PlayerPosition(0, 0);
+
     ++updateCounterIMap;
     m_window.Update();
 	sf::Time deltaTime = m_clock.getElapsedTime() - GetElapsed();
@@ -79,7 +80,7 @@ sf::Text Game::utilityFn(float val, sf::Vector2i pos) {
     
     sfTxt.setString(s);
     sfTxt.setFont(m_font);
-    sfTxt.setCharacterSize(10);//magic number - change based on tilesize
+    sfTxt.setCharacterSize(TEXT_SIZE_FOR_TILE);
     sfTxt.setFillColor(sf::Color::Black);
     
     sf::Vector2f text_pos;

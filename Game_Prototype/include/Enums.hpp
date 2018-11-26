@@ -11,6 +11,7 @@
 
 // Constants
 constexpr float WALK_ACCELERATION{ 200 };
+constexpr int TEXT_SIZE_FOR_TILE{ 10 };
 
 // Music tracks.
 enum class MUSIC_TRACK {
